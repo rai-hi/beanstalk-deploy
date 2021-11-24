@@ -122,8 +122,11 @@ function expect(status, result, extraErrorMessage) {
             console.log(extraErrorMessage);
         }
         if (result.headers['content-type'] !== 'application/json') {
+            console.log({result});
             throw new Error(`Status: ${result.statusCode}. Message: ${result.data}`);
+
         } else {
+            console.log({result});
             throw new Error(`Status: ${result.statusCode}. Code: ${result.data.Error.Code}, Message: ${result.data.Error.Message}`);
         }
     }
